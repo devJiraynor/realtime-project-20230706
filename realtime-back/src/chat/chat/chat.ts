@@ -30,7 +30,8 @@ export class Chat {
     ): void {
         const { room, message, nickname } = messageDto;
         this.logger.verbose(message);
-        this.server.to(room).emit('get', { nickname, message });
+        
+        this.server.to(room).emit('receive', { nickname, message });
     }
 
 }
